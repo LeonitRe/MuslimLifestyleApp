@@ -8,7 +8,10 @@ import TitleComp from './selamComponents/TitleComp.vue'
     <div class="cont d-flex justify-content-between">
       <ImageComp />
       <TitleComp />
-      <ButtonComp />
+      <ButtonComp class="p-3" #auth-buttons>
+        <router-link to="" type="button" class="btn btn-primary m-4">Login</router-link>
+        <router-link to="" type="button" class="btn btn-success">Register</router-link>
+      </ButtonComp>
     </div>
   </main>
 </template>
@@ -16,7 +19,7 @@ import TitleComp from './selamComponents/TitleComp.vue'
 .cont {
   height: 13vh;
 }
-button,
+.btn,
 h1 {
   font-family: 'Poppins', sans-serif;
 }

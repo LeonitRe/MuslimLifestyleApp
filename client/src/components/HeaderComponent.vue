@@ -1,26 +1,25 @@
 <template>
   <header>
     <div class="cont d-flex">
-      <LogoComp />
+      <LogoComp #logo>
+        <img src="../assets/images/layoutsImages/logo.jpg" alt="" class="h-100 w-100" />
+      </LogoComp>
       <SearchComp />
-      <div
-        class="border-end border-light content-3 d-flex justify-content-center align-items-center"
-      >
+      <IconComp #icon>
         <img src="../assets/images/layoutsImages/carton.jpg" alt="" class="icon" />
-      </div>
-      <div
-        class="border-end border-light content-3 d-flex justify-content-center align-items-center"
-      >
+      </IconComp>
+      <IconComp #icon>
         <img src="../assets/images/layoutsImages/heart.jpg" alt="" class="icon" />
-      </div>
-      <div class="content-3 d-flex justify-content-center align-items-center">
+      </IconComp>
+      <IconComp #icon>
         <img src="../assets/images/layoutsImages/user.jpg" alt="" class="icon" />
-      </div>
+      </IconComp>
     </div>
   </header>
 </template>
 
 <script setup>
+import IconComp from './headerComponents/IconComp.vue'
 import LogoComp from './headerComponents/LogoComp.vue'
 import SearchComp from './headerComponents/SearchComp.vue'
 </script>

@@ -1,19 +1,6 @@
-<!-- <script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  props: {
-    imageSrc: {
-      type: String,
-      required: true
-    }
-  }
-})
-</script>
-
 <template>
-  <div class="border-end border-light icons-cont d-flex justify-content-center align-items-center">
-    <img :src="imageSrc" alt="Image" class="icon" />
+  <div class="border-end content-3 d-flex justify-content-center align-items-center">
+    <slot name="icon" />
   </div>
 </template>
 
@@ -26,4 +13,4 @@ export default defineComponent({
   height: 25%;
   width: 16%;
 }
-</style> -->
+</style>

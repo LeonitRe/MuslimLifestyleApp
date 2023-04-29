@@ -1,6 +1,6 @@
 <template>
   <div class="border-end border-light logo">
-    <img src="../../assets/images/layoutsImages/logo.jpg" alt="" class="h-100 w-100" />
+    <slot name="logo" />
   </div>
 </template>
 <style scoped>
