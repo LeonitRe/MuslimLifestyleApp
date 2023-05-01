@@ -60,7 +60,7 @@ import LinkComp from './navComponents/LinkComp.vue'
             <router-link to="" class="dropdown-item">Home</router-link>
             <router-link to="/AboutUs" class="dropdown-item">About Us</router-link>
             <router-link to="" class="dropdown-item">Contact us</router-link>
-            <router-link to="" class="dropdown-item">FAQs</router-link>
+            <router-link to="/FAQs" class="dropdown-item">FAQs</router-link>
           </div>
         </div>
       </LinkComp>
