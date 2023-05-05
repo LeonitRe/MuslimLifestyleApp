@@ -9,8 +9,8 @@ import TitleComp from './selamComponents/TitleComp.vue'
       <ImageComp />
       <TitleComp />
       <ButtonComp class="p-3" #auth-buttons>
-        <router-link to="" type="button" class="btn btn-primary m-4">Login</router-link>
-        <router-link to="" type="button" class="btn btn-success">Register</router-link>
+        <router-link to="/Login" type="button" class="btn btn-primary m-4">Login</router-link>
+        <router-link to="/Register" type="button" class="btn btn-success">Register</router-link>
       </ButtonComp>
     </div>
   </main>
