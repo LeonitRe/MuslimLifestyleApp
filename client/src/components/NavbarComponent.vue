@@ -57,7 +57,7 @@ import LinkComp from './navComponents/LinkComp.vue'
             More
           </router-link>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <router-link to="" class="dropdown-item">Home</router-link>
+            <router-link to="/" class="dropdown-item">Home</router-link>
             <router-link to="/AboutUs" class="dropdown-item">About Us</router-link>
             <router-link to="/Contactus" class="dropdown-item">Contact us</router-link>
             <router-link to="/FAQs" class="dropdown-item">FAQs</router-link>
