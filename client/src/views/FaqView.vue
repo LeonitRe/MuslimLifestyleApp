@@ -2,6 +2,8 @@
 import Faq from '../components/faqComponents/Faq.vue'
 import FaqItem from '../components/faqComponents/FaqItem.vue'
 import FaqTitle from '../components/faqComponents/FaqTitle.vue'
+import Footer from '../components/FooterComponent.vue'
+import Copyright from '../components/CopyrightComponent.vue'
 </script>
 
 <template>
@@ -115,5 +117,7 @@ import FaqTitle from '../components/faqComponents/FaqTitle.vue'
       :collapse-id="'faq-collapse-14'"
     ></FaqItem>
   </Faq>
+  <Footer/>
+  <Copyright/>
 </template>
 <style scoped></style>

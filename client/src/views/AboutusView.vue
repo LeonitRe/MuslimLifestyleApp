@@ -1,5 +1,7 @@
 <script setup>
 import boxComp from '../components/aboutusComponents/boxComp.vue'
+import Footer from '../components/FooterComponent.vue'
+import Copyright from '../components/CopyrightComponent.vue'
 </script>
 <template>
   <main>
@@ -38,6 +40,8 @@ import boxComp from '../components/aboutusComponents/boxComp.vue'
       </boxComp>
     </div>
   </main>
+  <Footer/>
+  <Copyright/>
 </template>
 <style scoped>
 .img-cont {

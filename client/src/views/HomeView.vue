@@ -36,7 +36,8 @@
       </div>
     </HomeItem>
   </HomeBox>
-  
+  <Footer/>
+  <Copyright/>
   
 </template>
 
@@ -45,6 +46,8 @@ import HomeBox from '../components/homeComponents/HomeBox.vue'
 import HomeItem from '../components/homeComponents/HomeItem.vue'
 import firstpic from '../assets/home/first.png'
 import secondpic from '../assets/home/second.png'
+import Footer from '../components/FooterComponent.vue'
+import Copyright from '../components/CopyrightComponent.vue'
 import { ref, onMounted } from 'vue'
 
 const images = [firstpic, secondpic]

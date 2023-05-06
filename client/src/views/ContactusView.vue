@@ -1,6 +1,8 @@
 <script setup>
 import Contact from '../components/contactComponents/Contactus.vue'
 import ContactItem from '../components/contactComponents/ContactusItem.vue'
+import Footer from '../components/FooterComponent.vue'
+import Copyright from '../components/CopyrightComponent.vue'
 </script>
 <template>
   <Contact class="box">
@@ -34,6 +36,8 @@ import ContactItem from '../components/contactComponents/ContactusItem.vue'
       <p>10-19 pm</p>
     </ContactItem>
   </Contact>
+  <Footer/>
+  <Copyright/>
 </template>
 <style scoped>
 .box {

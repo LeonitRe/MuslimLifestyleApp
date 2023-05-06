@@ -2,6 +2,7 @@
 import User from '../../components/userComponents/User.vue'
 import UserItem from '../../components/userComponents/UserItem.vue'
 import UserText from '../../components/userComponents/UserText.vue'
+import Copyright from '../../components/CopyrightComponent.vue'
 </script>
 <template>
   <form action="">
@@ -55,6 +56,7 @@ import UserText from '../../components/userComponents/UserText.vue'
       </UserItem>
     </User>
   </form>
+  <Copyright/>
 </template>
 <style scoped>
 input {
