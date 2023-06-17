@@ -3,9 +3,30 @@ import User from '../../components/userComponents/User.vue'
 import UserItem from '../../components/userComponents/UserItem.vue'
 import UserText from '../../components/userComponents/UserText.vue'
 import Copyright from '../../components/CopyrightComponent.vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import apiClient from '../../api.js'
+
+const email = ref('')
+const password = ref('')
+const router = useRouter()
+
+const login = async () => {
+  try {
+    const response = await apiClient.post('/auth/login', {
+      email: email.value,
+      password: password.value
+    })
+
+    // Handle response and navigate to home
+    router.push('/')
+  } catch (error) {
+    // Handle error
+  }
+}
 </script>
 <template>
-  <form action="">
+  <form @submit.prevent="login">
     <User>
       <UserItem class="cont w-50 d-flex align-items-end justify-content-center">
         <UserText #h5>My account</UserText>
@@ -14,16 +35,18 @@ import Copyright from '../../components/CopyrightComponent.vue'
       <UserItem class="h-100 w-50 p-5 d-flex flex-column">
         <UserText #h6>Email*</UserText>
         <input
-          placeholder="Type Name"
+          v-model="email"
+          placeholder="Type Email"
           class="p-3 border-bottom border-2 border-success"
-          type="text"
+          type="email"
         />
         <br />
         <UserText #h6>Password*</UserText>
         <input
-          placeholder="Type Surname"
+          v-model="password"
+          placeholder="Type Password"
           class="p-3 border-bottom border-2 border-success"
-          type="text"
+          type="password"
         />
       </UserItem>
       <UserItem class="mt-3 w-50 d-flex flex-column align-items-center">
@@ -37,7 +60,7 @@ import Copyright from '../../components/CopyrightComponent.vue'
       </UserItem>
     </User>
   </form>
-  <Copyright/>
+  <Copyright />
 </template>
 <style scoped>
 input {

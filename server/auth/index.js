@@ -5,12 +5,19 @@ const authRouter = require("./route/authRouter");
 const cartRouter = require("./route/cartRouter");
 
 const app = express();
-const port = 3000;
+const port = 5090;
 
 app.use(bodyParser.json());
-app.use(cors());
 
-app.use("/auth", authRouter);
+// Enable CORS and specify the allowed origin
+app.use(
+  cors({
+    origin: "http://localhost:5174",
+    credentials: true,
+  })
+);
+
+app.use("/api/auth", authRouter);
 app.use("/api", cartRouter);
 
 app.listen(port, () => {

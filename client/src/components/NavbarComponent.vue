@@ -10,7 +10,10 @@ import LinkComp from './navComponents/LinkComp.vue'
         </router-link></LinkComp
       >
       <LinkComp #link>
-        <router-link to="" class="router border-0 d-flex justify-content-center align-items-center">
+        <router-link
+          to="/women"
+          class="router border-0 d-flex justify-content-center align-items-center"
+        >
           Women
         </router-link></LinkComp
       >
