@@ -4,11 +4,6 @@
       <div class="media-body">
         <ul class="list-unstyled">
           <slot />
-          <!-- <li><a href="#">Subcategory One</a></li>
-            <li><a href="#">Subcategory Two</a></li>
-            <li><a href="#">Subcategory Three</a></li>
-            <li><a href="#">Subcategory Four</a></li>
-            <li><a href="#">Subcategory Five</a></li> -->
         </ul>
       </div>
     </li>

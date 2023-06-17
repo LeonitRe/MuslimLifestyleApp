@@ -146,7 +146,7 @@ const AddProductForm = () => {
             </label>
             <select
               name="category"
-              value={category} // Add this line to set the selected value
+              value={category}
               onChange={(e) => setCategory(e.target.value)}
               id="category"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
@@ -161,19 +161,19 @@ const AddProductForm = () => {
               <option value="kids">Kids</option>
               <option value="fragrances">Fragrances</option>
               <option value="lifestyle">Lifestyle</option>
-              <option value="more">More</option>
             </select>
           </div>
+
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="category"
+              htmlFor="producttype"
             >
               Product Type
             </label>
             <select
               name="producttype"
-              value={producttype} // Add this line to set the selected value
+              value={producttype}
               onChange={(e) => setProducttype(e.target.value)}
               id="producttype"
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
@@ -181,10 +181,52 @@ const AddProductForm = () => {
               <option value="" disabled>
                 Select a Type of product
               </option>
-              <option value="hijab">Hijab</option>
-              <option value="jibabs">Jibabs</option>
+              {category === "women" && (
+                <>
+                  <option value="hijab">Hijab</option>
+                  <option value="jibabs">Jibabs</option>
+                  <option value="kaftans">Kaftans</option>
+                </>
+              )}
+              {category === "accessories" && (
+                <>
+                  <option value="hijabcaps">Hijabcaps</option>
+                  <option value="hijabscarf">Hijabscarf</option>
+                  <option value="hijabseelve">Hijabseelve</option>
+                </>
+              )}
+              {category === "men" && (
+                <>
+                  <option value="bishts">Bishts</option>
+                  <option value="jalabyas">Jalabyas</option>
+                  <option value="kufi">Kufi</option>
+                  <option value="thobes">Thobes</option>
+                </>
+              )}
+              {category === "kids" && (
+                <>
+                  <option value="boys">Boys</option>
+                  <option value="girls">Girls</option>
+                </>
+              )}
+              {category === "fragrances" && (
+                <>
+                  <option value="attars">Attars</option>
+                  <option value="brands">Brands</option>
+                  <option value="burners">Burners</option>
+                  <option value="incense">Incense</option>
+                </>
+              )}
+              {category === "lifestyle" && (
+                <>
+                  <option value="eidecor">Eidecor</option>
+                  <option value="prayer">Prayer</option>
+                  <option value="ramadandecor">Ramadandecor</option>
+                </>
+              )}
             </select>
           </div>
+
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"

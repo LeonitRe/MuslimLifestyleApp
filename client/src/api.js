@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:5090/api' // Adjust the URL to match your backend server
+const baseURL = 'http://localhost:5090/api'
 
 const apiClient = axios.create({
   baseURL,
-  withCredentials: true // Enable cross-origin requests with credentials
+  withCredentials: true
 })
 
 export default apiClient

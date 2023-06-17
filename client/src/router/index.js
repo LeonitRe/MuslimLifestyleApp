@@ -58,6 +58,47 @@ const router = createRouter({
       component: () => import('../views/products/WomenView.vue')
     },
     {
+      path: '/men',
+      name: 'men',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/products/MenView.vue')
+    },
+    {
+      path: '/lifestyle',
+      name: 'lifestyle',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/products/LifestyleView.vue')
+    },
+    {
+      path: '/kids',
+      name: 'kids',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/products/KidsView.vue')
+    },
+    {
+      path: '/fragrances',
+      name: 'fragrances',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/products/FragrancesView.vue')
+    },
+    {
+      path: '/accessories',
+      name: 'accessories',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/products/AccessoriesView.vue')
+    },
+
+    {
       path: '/products/:id',
       name: 'ProductView',
       // route level code-splitting

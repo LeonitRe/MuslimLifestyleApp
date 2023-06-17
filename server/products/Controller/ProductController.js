@@ -71,7 +71,7 @@ export const saveProduct = async (req, res) => {
 
       try {
         const product = await Product.create({
-          name: title, // Use the title instead of the original image name
+          name: title,
           price,
           description,
           size,
@@ -153,8 +153,7 @@ export const updateProduct = async (req, res) => {
       return res.status(404).json({ error: "Product not found" });
     }
 
-    product.name = title; // Update the name/title field
-    // Update other fields
+    product.name = title;
     product.price = price;
     product.description = description;
     product.size = size;

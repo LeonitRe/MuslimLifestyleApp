@@ -1,7 +1,4 @@
 <template>
-  <!-- <div class="border d-flex justify-content-center align-items-center bg-dark" style="height: 10vh">
-    <h4 class="text-light"><slot /></h4>
-  </div> -->
   <nav class="navbar navbar-expand-lg container">
     <div class="container">
       <ul

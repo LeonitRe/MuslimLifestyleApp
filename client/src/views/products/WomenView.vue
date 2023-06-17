@@ -1,5 +1,6 @@
 <script setup>
-// import Box from '../../components/navComponents/Box.vue'
+import FooterComponent from '../../components/FooterComponent.vue'
+import CopyrightComponent from '../../components/CopyrightComponent.vue'
 import Header from '../../components/products/Header.vue'
 import FilterBox from '../../components/products/FilterBox.vue'
 import Filter from '../../components/products/Filter.vue'
@@ -35,7 +36,7 @@ const product = async () => {
 }
 const filterByPriceRange = (product) => {
   if (!priceRange.value) {
-    return true // If no price range is selected, show all products
+    return true
   }
 
   const [min, max] = priceRange.value.split('-')
@@ -78,27 +79,24 @@ const filteredProducts = computed(() => {
   })
 })
 const setProductType = (type) => {
-  searchQuery.value = '' // Reset the search query when selecting a product type
+  searchQuery.value = ''
   productType.value = type
 }
 const setProductSize = (type) => {
-  searchQuery.value = '' // Reset the search query when selecting a product type
+  searchQuery.value = ''
   productSize.value = type
 }
 const setProductColor = (type) => {
-  searchQuery.value = '' // Reset the search query when selecting a product type
+  searchQuery.value = ''
   productColor.value = type
 }
 
-// Your existing code...
-
-// Method to clear filters
 const clearFilter = (filterType) => {
   if (filterType === 'all') {
-    productType.value = '' // Reset the selected product type
-    priceRange.value = '' // Reset the selected price range
-    productSize.value = '' // Reset the selected product size
-    productColor.value = '' // Reset the selected product color
+    productType.value = ''
+    priceRange.value = ''
+    productSize.value = ''
+    productColor.value = ''
   } else if (filterType === 'productType') {
     productType.value = ''
   } else if (filterType === 'priceRange') {
@@ -119,7 +117,6 @@ const sortProducts = (option) => {
   loading.value = true
 
   setTimeout(() => {
-    // Perform sorting logic here
     switch (option) {
       case 'az':
         prd.value.sort((a, b) => a.name.localeCompare(b.name))
@@ -137,7 +134,6 @@ const sortProducts = (option) => {
         break
     }
 
-    // After sorting is completed, set loading to false
     loading.value = false
   }, 1000)
 }
@@ -159,6 +155,11 @@ const seeDetails = (productId) => {
         <li>
           <button type="button" class="btn btn-light" @click="setProductType('Jibabs')">
             Jibabs
+          </button>
+        </li>
+        <li>
+          <button type="button" class="btn btn-light" @click="setProductType('Kaftans')">
+            Kaftans
           </button>
         </li>
       </Item>
@@ -326,6 +327,8 @@ const seeDetails = (productId) => {
   <div v-if="loading" class="loading-overlay">
     <i class="fas fa-spinner fa-spin"></i>
   </div>
+  <FooterComponent />
+  <CopyrightComponent />
 </template>
 <style scoped>
 @import url('@fortawesome/fontawesome-free/css/all.css');
@@ -350,9 +353,9 @@ const seeDetails = (productId) => {
 
 .image-container img {
   transition: transform 0.3s ease;
-  width: 100%; /* Set the width to 100% to fill the container */
-  height: 100%; /* Set the height to 100% to maintain aspect ratio */
-  object-fit: cover; /* Maintain aspect ratio and fill the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .image-container:hover img {
@@ -394,7 +397,7 @@ const seeDetails = (productId) => {
 }
 
 .clear-icon:hover {
-  color: red; /* Change the color to your desired hover color */
+  color: red;
 }
 .loading-overlay {
   position: fixed;
