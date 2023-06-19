@@ -3,6 +3,16 @@ import Contact from '../components/contactComponents/Contactus.vue'
 import ContactItem from '../components/contactComponents/ContactusItem.vue'
 import Footer from '../components/FooterComponent.vue'
 import Copyright from '../components/CopyrightComponent.vue'
+
+import axios from 'axios'
+
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 <template>
   <Contact class="box">
@@ -23,7 +33,13 @@ import Copyright from '../components/CopyrightComponent.vue'
         placeholder="Enter your message"
         rows="10"
       ></textarea>
-      <button type="button" class="btn btn-primary w-25 mt-3">Submit</button>
+      <button
+        type="button"
+        class="btn btn-primary w-25 mt-3"
+        @click="handleButtonClick('Send Contact')"
+      >
+        Submit
+      </button>
     </ContactItem>
     <ContactItem class="w-25 p-5 bg-dark text-light">
       <h3>Call us</h3>
@@ -36,8 +52,8 @@ import Copyright from '../components/CopyrightComponent.vue'
       <p>10-19 pm</p>
     </ContactItem>
   </Contact>
-  <Footer/>
-  <Copyright/>
+  <Footer />
+  <Copyright />
 </template>
 <style scoped>
 .box {

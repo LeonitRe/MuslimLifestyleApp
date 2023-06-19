@@ -2,6 +2,15 @@
 import ButtonComp from './selamComponents/ButtonComp.vue'
 import ImageComp from './selamComponents/ImageComp.vue'
 import TitleComp from './selamComponents/TitleComp.vue'
+import axios from 'axios'
+
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 <template>
   <main>
@@ -9,8 +18,20 @@ import TitleComp from './selamComponents/TitleComp.vue'
       <ImageComp />
       <TitleComp />
       <ButtonComp class="p-3" #auth-buttons>
-        <router-link to="/Login" type="button" class="btn btn-primary m-4">Login</router-link>
-        <router-link to="/Register" type="button" class="btn btn-success">Register</router-link>
+        <router-link
+          to="/Login"
+          type="button"
+          class="btn btn-primary m-4"
+          @click="handleButtonClick('Login Link')"
+          >Login</router-link
+        >
+        <router-link
+          to="/Register"
+          type="button"
+          class="btn btn-success"
+          @click="handleButtonClick('Register Link')"
+          >Register</router-link
+        >
       </ButtonComp>
     </div>
   </main>

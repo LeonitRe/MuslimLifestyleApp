@@ -113,11 +113,22 @@ const lifestyles = ref([
     title: 'Ramadandecor'
   }
 ])
+import axios from 'axios'
+
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 <template>
   <Box>
     <li class="nav-item dropdown dropdown-hover position-static d-flex align-items-center">
-      <router-link to="" class="nav-link router"> New Arrivals </router-link>
+      <router-link to="" class="nav-link router" @click="handleButtonClick('New Arrivals Link')">
+        New Arrivals
+      </router-link>
     </li>
     <li
       class="nav-item dropdown dropdown-hover position-static d-flex align-items-center justify-content-evenly"
@@ -129,6 +140,7 @@ const lifestyles = ref([
         id="navbarDropdown"
         data-mdb-toggle="dropdown"
         aria-expanded="false"
+        @click="handleButtonClick('Women Link')"
       >
         Women
       </router-link>
@@ -151,6 +163,7 @@ const lifestyles = ref([
         id="navbarDropdown"
         data-mdb-toggle="dropdown"
         aria-expanded="false"
+        @click="handleButtonClick('Accessories Link')"
       >
         Accessories
       </router-link>
@@ -173,6 +186,7 @@ const lifestyles = ref([
         id="navbarDropdown"
         data-mdb-toggle="dropdown"
         aria-expanded="false"
+        @click="handleButtonClick('Men Link')"
       >
         Men
       </router-link>
@@ -195,6 +209,7 @@ const lifestyles = ref([
         id="navbarDropdown"
         data-mdb-toggle="dropdown"
         aria-expanded="false"
+        @click="handleButtonClick('Kids Link')"
       >
         Kids
       </router-link>
@@ -217,6 +232,7 @@ const lifestyles = ref([
         id="navbarDropdown"
         data-mdb-toggle="dropdown"
         aria-expanded="false"
+        @click="handleButtonClick('Fragrances Link')"
       >
         Fragrances
       </router-link>
@@ -239,6 +255,7 @@ const lifestyles = ref([
         id="navbarDropdown"
         data-mdb-toggle="dropdown"
         aria-expanded="false"
+        @click="handleButtonClick('Lifestyle Link')"
       >
         Lifestyle
       </router-link>
@@ -263,10 +280,24 @@ const lifestyles = ref([
         More
       </router-link>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <router-link to="/" class="dropdown-item">Home</router-link>
-        <router-link to="/AboutUs" class="dropdown-item">About Us</router-link>
-        <router-link to="/Contactus" class="dropdown-item">Contact us</router-link>
-        <router-link to="/FAQs" class="dropdown-item">FAQs</router-link>
+        <router-link to="/" class="dropdown-item" @click="handleButtonClick('Home View Link')"
+          >Home</router-link
+        >
+        <router-link
+          to="/AboutUs"
+          class="dropdown-item"
+          @click="handleButtonClick('Aboutus View Link')"
+          >About Us</router-link
+        >
+        <router-link
+          to="/Contactus"
+          class="dropdown-item"
+          @click="handleButtonClick('Cotanctus View Link')"
+          >Contact us</router-link
+        >
+        <router-link to="/FAQs" class="dropdown-item" @click="handleButtonClick('FAQs View Link')"
+          >FAQs</router-link
+        >
       </div>
     </div>
   </Box>

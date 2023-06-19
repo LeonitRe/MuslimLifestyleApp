@@ -64,6 +64,13 @@ const register = async () => {
     // Handle error
   }
 }
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 
 <template>
@@ -118,7 +125,12 @@ const register = async () => {
         <br />
         <div class="d-flex">
           <p class="text-secondary me-2">Already have an account?</p>
-          <router-link class="link text-success" to="/Login">Login</router-link>
+          <router-link
+            class="link text-success"
+            to="/Login"
+            @click="handleButtonClick('Register User Button')"
+            >Login</router-link
+          >
         </div>
       </UserItem>
     </User>

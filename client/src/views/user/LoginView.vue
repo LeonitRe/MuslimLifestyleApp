@@ -47,6 +47,14 @@ const login = async () => {
     }
   }
 }
+
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 
 <template>
@@ -84,7 +92,12 @@ const login = async () => {
         <p class="text-secondary">Forgot password?</p>
         <div class="d-flex">
           <p class="text-secondary me-2">Don't have an account?</p>
-          <router-link class="link text-success" to="/Register">Register</router-link>
+          <router-link
+            class="link text-success"
+            to="/Register"
+            @click="handleButtonClick('Login User Button')"
+            >Register</router-link
+          >
         </div>
       </UserItem>
     </User>

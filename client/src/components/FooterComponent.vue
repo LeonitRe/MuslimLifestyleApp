@@ -2,6 +2,15 @@
 import FooterBox from './footerComponents/FooterBox.vue'
 import FooterItem from './footerComponents/FooterItem.vue'
 import Box from './footerComponents/Box.vue'
+import axios from 'axios'
+
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 <template>
   <FooterBox>
@@ -56,7 +65,14 @@ import Box from './footerComponents/Box.vue'
             aria-label="Recipient's username"
             aria-describedby="button-addon2"
           />
-          <button class="btn btn-dark" type="button" id="button-addon2">Subscribe</button>
+          <button
+            class="btn btn-dark"
+            type="button"
+            id="button-addon2"
+            @click="handleButtonClick('Subscribe')"
+          >
+            Subscribe
+          </button>
         </div>
       </Box>
       <Box class="d-flex align-items-center mt-2 p-0">

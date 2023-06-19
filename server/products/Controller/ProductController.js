@@ -180,3 +180,14 @@ export const updateProduct = async (req, res) => {
     res.status(500).json({ error: "Failed to update product" });
   }
 };
+
+export const getProductsLength = async (_, res) => {
+  try {
+    const products = await Product.find();
+    const count = products.length;
+    res.json({ count });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to get product count" });
+  }
+};

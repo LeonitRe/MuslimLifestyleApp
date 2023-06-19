@@ -140,6 +140,13 @@ const sortProducts = (option) => {
 const seeDetails = (productId) => {
   router.push({ name: 'ProductView', params: { id: productId } })
 }
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 <template>
   <Header> Women </Header>
@@ -148,17 +155,29 @@ const seeDetails = (productId) => {
       <Item>
         <h5 class="media-heading">Product Type</h5>
         <li>
-          <button type="button" class="btn btn-light" @click="setProductType('Hijab')">
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="setProductType('Hijab'), handleButtonClick('Hijab Women Product Type')"
+          >
             Hijab
           </button>
         </li>
         <li>
-          <button type="button" class="btn btn-light" @click="setProductType('Jibabs')">
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="setProductType('Jibabs'), handleButtonClick('Jibabs Women Product Type')"
+          >
             Jibabs
           </button>
         </li>
         <li>
-          <button type="button" class="btn btn-light" @click="setProductType('Kaftans')">
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="setProductType('Kaftans'), handleButtonClick('Kaftans Women Product Type')"
+          >
             Kaftans
           </button>
         </li>
@@ -166,10 +185,20 @@ const seeDetails = (productId) => {
       <Item>
         <h5 class="media-heading">Select Price</h5>
         <li>
-          <button type="button" class="btn btn-light" @click="priceRange = '0-20'">0 - 20€</button>
+          <button
+            type="button"
+            class="btn btn-light"
+            @click=";(priceRange = '0-20'), handleButtonClick('Women 0-20 Price')"
+          >
+            0 - 20€
+          </button>
         </li>
         <li>
-          <button type="button" class="btn btn-light" @click="priceRange = '20-40'">
+          <button
+            type="button"
+            class="btn btn-light"
+            @click=";(priceRange = '20-40'), handleButtonClick('Women 20-40 Price')"
+          >
             20 - 40€
           </button>
         </li>
@@ -178,7 +207,7 @@ const seeDetails = (productId) => {
             type="button"
             class="btn btn-light"
             :disabled="loading"
-            @click="priceRange = '40-60'"
+            @click=";(priceRange = '40-60'), handleButtonClick('Women 40-60 Price')"
           >
             40 - 60€
           </button>
@@ -187,51 +216,111 @@ const seeDetails = (productId) => {
       <Item>
         <h5 class="media-heading">Select Size</h5>
         <li>
-          <button type="button" class="btn btn-light" @click="setProductSize('S')">S</button>
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="setProductSize('S'), handleButtonClick('Women Size S')"
+          >
+            S
+          </button>
         </li>
         <li>
           <button
             type="button"
             class="btn btn-light"
             :disabled="loading"
-            @click="setProductSize('M')"
+            @click="setProductSize('M'), handleButtonClick('Women Size M')"
           >
             M
           </button>
         </li>
         <li>
-          <button type="button" class="btn btn-light" @click="setProductSize('L')">L</button>
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="setProductSize('L'), handleButtonClick('Women Size L')"
+          >
+            L
+          </button>
         </li>
         <li>
-          <button type="button" class="btn btn-light" @click="setProductSize('XL')">XL</button>
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="setProductSize('XL'), handleButtonClick('Women Size XL')"
+          >
+            XL
+          </button>
         </li>
         <li>
-          <button type="button" class="btn btn-light" @click="setProductSize('XXL')">XXL</button>
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="setProductSize('XXL'), handleButtonClick('Women Size XXL')"
+          >
+            XXL
+          </button>
         </li>
       </Item>
       <Item>
         <h5 class="media-heading">Select Color</h5>
         <li class="d-flex flex-row align-items-center">
           <div class="border color bg-dark"></div>
-          <button type="" class="btn btn-light" @click="setProductColor('Black')">Black</button>
+          <button
+            type=""
+            class="btn btn-light"
+            @click="setProductColor('Black'), handleButtonClick('Women Color Black')"
+          >
+            Black
+          </button>
         </li>
         <li class="d-flex flex-row align-items-center">
           <div class="border color bg-primary"></div>
-          <button type="" class="btn btn-light" @click="setProductColor('Blue')">Blue</button>
+          <button
+            type=""
+            class="btn btn-light"
+            @click="setProductColor('Blue'), handleButtonClick('Women Color Blue')"
+          >
+            Blue
+          </button>
         </li>
         <li class="d-flex flex-row align-items-center">
           <div class="border color bg-danger"></div>
-          <button type="" class="btn btn-light" @click="setProductColor('Red')">Red</button>
+          <button
+            type=""
+            class="btn btn-light"
+            @click="setProductColor('Red'), handleButtonClick('Women Color Red')"
+          >
+            Red
+          </button>
         </li>
         <li class="d-flex flex-row align-items-center">
           <div class="border color bg-success"></div>
-          <button type="" class="btn btn-light" @click="setProductColor('Green')">Green</button>
+          <button
+            type=""
+            class="btn btn-light"
+            @click="setProductColor('Green'), handleButtonClick('Women Color Grren')"
+          >
+            Green
+          </button>
         </li>
       </Item>
       <Item>
         <h5 class="media-heading">Availability</h5>
-        <li><button type="button" class="btn btn-light">In Stock</button></li>
-        <li><button type="button" class="btn btn-light">Out of Stock</button></li>
+        <li>
+          <button type="button" class="btn btn-light" @click="handleButtonClick('Women InStock')">
+            In Stock
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="btn btn-light"
+            @click="handleButtonClick('Women OutofStock')"
+          >
+            Out of Stock
+          </button>
+        </li>
       </Item>
     </Filter>
     <input
@@ -243,18 +332,28 @@ const seeDetails = (productId) => {
     />
     <RelevanceFilter relevancefilter="Revelance">
       <Item>
-        <button type="button" class="btn btn-light" @click="sortProducts('az')" :disabled="loading">
+        <button
+          type="button"
+          class="btn btn-light"
+          @click="sortProducts('az'), handleButtonClick('Women Alphabet Increment')"
+          :disabled="loading"
+        >
           Alphabetically, A-Z
           <i v-if="loading && currentSort === 'az'" class="fas fa-spinner fa-spin"></i>
         </button>
-        <button type="button" class="btn btn-light" @click="sortProducts('za')" :disabled="loading">
+        <button
+          type="button"
+          class="btn btn-light"
+          @click="sortProducts('za'), handleButtonClick('Women Alphabet Decrement')"
+          :disabled="loading"
+        >
           Alphabetically, Z-A
           <i v-if="loading && currentSort === 'za'" class="fas fa-spinner fa-spin"></i>
         </button>
         <button
           type="button"
           class="btn btn-light w-100"
-          @click="sortProducts('low')"
+          @click="sortProducts('low'), handleButtonClick('Women Price Increment')"
           :disabled="loading"
         >
           Price, low to high
@@ -263,7 +362,7 @@ const seeDetails = (productId) => {
         <button
           type="button"
           class="btn btn-light w-100"
-          @click="sortProducts('high')"
+          @click="sortProducts('high'), handleButtonClick('Women Alphabet Decrement')"
           :disabled="loading"
         >
           Price, high to low
@@ -295,7 +394,10 @@ const seeDetails = (productId) => {
           <i class="fas fa-minus-circle fa-fw clear-icon" @click="clearFilter('productColor')"></i>,
         </strong>
       </div>
-      <button class="btn btn-light" @click="clearFilter('all')">
+      <button
+        class="btn btn-light"
+        @click="clearFilter('all'), handleButtonClick('Women Clear Filter')"
+      >
         <i class="fas fa-minus fa-fw"></i> Clear Filters
       </button>
     </template>
@@ -308,7 +410,12 @@ const seeDetails = (productId) => {
           <div class="image-container">
             <img :src="p.url" class="card-img-top" alt="Product Image" />
             <div class="image-overlay d-flex flex-column p-5" v-if="p.hover">
-              <button class="btn btn-secondary" @click="seeDetails(p.id)">See Details</button>
+              <button
+                class="btn btn-secondary"
+                @click="seeDetails(p.id), handleButtonClick('Women Products Details')"
+              >
+                See Details
+              </button>
             </div>
           </div>
           <div class="card-body d-flex align-items-center justify-content-between">

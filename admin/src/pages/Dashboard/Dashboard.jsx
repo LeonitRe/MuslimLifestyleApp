@@ -1,5 +1,24 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { montlyprofit, orders, productcart, revenu } from "../../assets";
+
 const Dashboard = () => {
+  const [productCount, setProductCount] = useState(0);
+  useEffect(() => {
+    const fetchProductCount = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5080/products/length"
+        );
+        const count = response.data.count;
+        setProductCount(count);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchProductCount();
+  }, []);
   return (
     <div className="w-full p-6 grid grid-cols-4 gap-4">
       <div className="col-span-full">
@@ -33,7 +52,7 @@ const Dashboard = () => {
           </div>
           <div>
             <h1 className="text-2xl font-semibold">Total Products</h1>
-            <h2 className="text-xl font-semibold">900</h2>
+            <h2 className="text-xl font-semibold">{productCount}</h2>
             <p className="text-sm">In 19 Categories</p>
           </div>
         </div>

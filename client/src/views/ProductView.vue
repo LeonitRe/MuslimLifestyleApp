@@ -50,6 +50,14 @@ onMounted(() => {
 function handleImageLoad() {
   zoomingInstance.listen('.image-zoom')
 }
+
+async function handleButtonClick(buttonName) {
+  try {
+    await axios.put('http://localhost:5070/api/buttonClicks/' + buttonName)
+  } catch (error) {
+    console.error('Error tracking button click:', error)
+  }
+}
 </script>
 
 <template>
@@ -80,9 +88,13 @@ function handleImageLoad() {
         </h5>
         <br />
         <div class="w-50 d-flex justify-content-around">
-          <button class="btn btn-outline-secondary">Checkout</button>
+          <button class="btn btn-outline-secondary" @click="handleButtonClick('Checkout')">
+            Checkout
+          </button>
 
-          <button class="btn btn-outline-dark">Add to Cart</button>
+          <button class="btn btn-outline-dark" @click="handleButtonClick('Add To Cart')">
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
